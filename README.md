@@ -1,4 +1,1 @@
--Ethers
--Tailwind
--Dotenv
--Theme Provider
+### Freela Dryppy Stake Dapp
