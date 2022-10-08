@@ -1,17 +1,51 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context/appContext";
+import React from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import banner from "../../assets/images/banner.png";
+import Header from "../Header";
 
 const Main = () => {
-  const { userAddress, netWork } = useContext(AppContext);
   return (
-    <div className=' h-[calc(100vh-56px)] w-full flex justify-center items-center'>
-      <div className='flex flex-col p-10 items-center w-[400px] justify-center bg-slate-500 rounded-md'>
-        <h3>Network: {netWork}</h3>
-        <h3>Address: {userAddress}</h3>
-        <h3>Balance: {}</h3>
-        <h3>ReadOnly value: {}</h3>
+    <div className="">
+      <Header />
+      <div className="w-full flex justify-center ">
+        <div className="max-w-screen-lg w-full">
+          <div className="mt-5 ">
+            <img src={banner} alt="banner" />
+          </div>
+          <nav className="mt-2">
+            <ul className="bg-black text-white flex w-full h-14 items-center">
+              <NavLink end to="/">
+                <li className="hover:bg-blue-900 cursor-pointer h-full flex justify-center items-center w-32 p-4">
+                  HOME
+                </li>
+              </NavLink>
+
+              <NavLink to="/trade">
+                <li className="hover:bg-blue-900 cursor-pointer h-full flex justify-center items-center w-32 p-4">
+                  TRADE
+                </li>
+              </NavLink>
+
+              <NavLink to="/farms">
+                <li className="hover:bg-blue-900 cursor-pointer h-full flex justify-center items-center w-32 p-4">
+                  FARMS
+                </li>
+              </NavLink>
+
+              <NavLink to="/staking">
+                <li className="hover:bg-blue-900 cursor-pointer h-full flex justify-center items-center w-32 p-4">
+                  STAKING
+                </li>
+              </NavLink>
+            </ul>
+          </nav>
+          <div className="">
+            <Outlet />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Main;

@@ -4,6 +4,8 @@ import { ethers } from "ethers";
 import { shortAddress } from "../../utils";
 import { AppContext } from "../../context/appContext";
 
+import logo from "../../assets/images/logo.png";
+
 const Header = () => {
   const [shortUserAddress, setShortUserAddress] = useState();
   const { userAddress, setUserAddress, setSigner } = useContext(AppContext); // no auto-completion?
@@ -60,14 +62,19 @@ const Header = () => {
   };
 
   return (
-    <div className='flex justify-end h-14 w-full p-3 text-black bg-gray-400'>
-      <button
-        onClick={connectWallet}
-        className='p-2 flex justify-center items-center bg-blue-400'>
-        {userAddress !== null ? shortUserAddress : "Connect Wallet"}
-      </button>
-      <script src='https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js'></script>
-    </div>
+    <header className="w-full flex justify-center bg-black">
+      <div className="flex justify-between items-center h-16 w-full max-w-screen-lg p-3 text-white">
+        <h1 className="flex items-center">
+          <img src={logo} alt="logo" className="h-9" />
+        </h1>
+        <button
+          onClick={connectWallet}
+          className="p-2 flex justify-center items-center bg-blue-400 rounded-lg px-8"
+        >
+          {userAddress !== null ? shortUserAddress : "Connect Wallet"}
+        </button>
+      </div>
+    </header>
   );
 };
 export default Header;
